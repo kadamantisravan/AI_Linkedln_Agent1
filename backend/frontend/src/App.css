@@ -1,0 +1,346 @@
+/* Base container */
+.App {
+  font-family: "Segoe UI", sans-serif;
+  padding: 2rem;
+  min-height: 100vh;
+  background: linear-gradient(120deg, #f0f0f0, #fafafa);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.App.dark {
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  color: #f0f0f0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 860px;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff416c;
+  text-shadow: 0px 3px 10px rgba(255, 65, 108, 0.4);
+}
+
+/* Dark/light toggle */
+.toggle {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.toggle input[type="checkbox"] {
+  appearance: none;
+  width: 50px;
+  height: 28px;
+  background: #ccc;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+.toggle input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle input[type="checkbox"]:checked {
+  background: #6c63ff;
+}
+
+.toggle input[type="checkbox"]:checked::before {
+  transform: translateX(22px);
+}
+
+/* Section box */
+.section-box {
+  background: #ffffff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 860px;
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.section-box:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+}
+
+.App.dark .section-box {
+  background: #1e1e1e;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* Inputs & textareas */
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  border: none;
+  background: #f9f9f9;
+  box-shadow: inset 4px 4px 8px #e0e0e0, inset -4px -4px 8px #fff;
+  transition: 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #ff416c33;
+}
+
+textarea {
+  resize: none;
+  height: 180px;
+  line-height: 1.6;
+}
+
+.App.dark input,
+.App.dark textarea,
+.App.dark select {
+  background: #2a2a2a;
+  color: #fff;
+  box-shadow: inset 3px 3px 6px #151515, inset -3px -3px 6px #2e2e2e;
+}
+
+/* Button styling */
+button {
+  margin-top: 1rem;
+  padding: 0.9rem 2.2rem;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(255, 65, 108, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 26px rgba(255, 75, 43, 0.4);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Output */
+.output {
+  width: 100%;
+  margin-top: 1rem;
+  animation: fadeIn 0.5s ease;
+}
+
+.output textarea {
+  margin-top: 0.5rem;
+  box-shadow: inset 6px 6px 10px #eee, inset -6px -6px 10px #fff;
+}
+
+.App.dark .output textarea {
+  background: #292929;
+  color: #f1f1f1;
+  box-shadow: inset 3px 3px 8px #1a1a1a, inset -3px -3px 8px #333;
+}
+
+/* Analytics Grid */
+.analytics-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.analytics-card {
+  flex: 1 1 200px;
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.analytics-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(255, 65, 108, 0.25);
+  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+}
+
+.App.dark .analytics-card {
+  background: #262626;
+  color: white;
+}
+
+.analytics-card .icon {
+  font-size: 2rem;
+}
+
+.analytics-card .metric {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.analytics-card .label {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Trends Grid */
+.trends-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.trend-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.trend-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(255, 65, 108, 0.2);
+  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+}
+
+.App.dark .trend-card {
+  background: #262626;
+  color: white;
+}
+
+/* Strategy Grid */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.strategy-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.strategy-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(255, 65, 108, 0.2);
+  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+}
+
+.App.dark .strategy-card {
+  background: #262626;
+  color: white;
+}
+
+/* Advanced Post Output */
+.card-output {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  white-space: pre-wrap;
+  font-family: monospace;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.card-output:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgba(255, 65, 108, 0.25);
+  border-image: linear-gradient(45deg, #ff416c, #ff4b2b) 1;
+}
+
+.App.dark .card-output {
+  background: #262626;
+  color: white;
+}
+
+/* Auth screen */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+.auth-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.auth-container input {
+  background: white;
+  color: black;
+  box-shadow: none;
+}
+
+.auth-container button {
+  margin-top: 1rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
